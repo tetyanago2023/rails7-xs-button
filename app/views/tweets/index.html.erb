@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+<h1 class="center-content">Tweets</h1>
+<div class="center-content">
+  <%= render "form", tweet: @tweet %>
+</div>
+<div data-controller="tweets">
+  <div class="center-content">
+    <button class="hidden"
+            data-tweets-target="notification"
+            data-action="click->tweets#loadNewTweets"></button>
+  </div>
+  <div data-tweets-target="container">
+    <% @tweets.each do |tweet| %>
+      <%= render tweet %>
+    <% end %>
+  </div>
+</div>
